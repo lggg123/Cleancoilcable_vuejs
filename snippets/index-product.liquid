@@ -1,0 +1,10 @@
+{% assign mainProduct = all_products['cable'] %}
+<div id='page-index'>
+    <div id="product-images" class="sticky-side-image">
+        {% for image in mainProduct.images %}
+            <div class="single-product-image" {% if image.attached_to_variant? %}data-variant="{{ image.variants.first.id}}"{% endif %} style="{% if forloop.index > 1%}display: none;{% endif %}">
+                <img src="{{ image | img_url: 'large' }}" alt="cable-product">
+            </div> 
+        {% endfor %}
+    </div>
+</div>

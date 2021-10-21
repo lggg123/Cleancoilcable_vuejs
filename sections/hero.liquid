@@ -1,0 +1,27 @@
+<div class="hero-image image-section">
+    {% comment %} section accesses the schema, settings accesses settings
+    within the schem and image is accessing the id type
+    {% endcomment %}
+    <img loading="lazy" src="{{ section.settings.image | img_url: '2480x980' }}">
+    <h2>Clean Coil Cable</h2>
+    <a href="https://cleancoilcable.com/products/cable" class="btn hero__cta">SHOP NOW</a>
+    
+</div>
+{% schema %}
+{
+    "name": "Hero Image",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        }
+    ],
+    "presets": [
+        {
+        "name": "Hero Image",
+        "category": "Image"
+        }
+    ]
+}
+{% endschema %}

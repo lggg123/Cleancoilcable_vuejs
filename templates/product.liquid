@@ -1,0 +1,111 @@
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+
+<div class="product-template container" id="desktop">
+  <div class="product-images">
+    <div class="swiper-container-product-page swiper-container-{{- product.id -}}">
+      <div class="swiper-wrapper">
+        {% for image in product.images %}
+          <div class="swiper-slide">
+            <img loading="lazy" src="{{ image.src | img_url: 'large' }}" alt="{{ image.alt | escape }}" />
+            <div class="swiper-button-next swiper-button-next-{{- product.id -}}"></div>
+            <div class="swiper-button-prev swiper-button-prev-{{- product.id -}}"></div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="product-description-container">
+    <div class="product-title">
+      <h1>{{ product.title }}</h1>
+    </div>
+
+    <div class="product-bottom">
+      <div class="product-description">
+        <p>No more Messy and Tangled cables!
+          The Clean™ Coil Cable keeps your workspace clean and organized and lets you enjoy the charging comfort from the future today! No tangled cable means your cable won't break!
+        </p>
+      </div>
+      {% render 'add-to-cart-form' %}
+    </div>
+  </div>
+</div>
+
+<div class="description-mobile">
+  <h1>No more Messy and Tangled cables!</h1>
+</div>
+
+<div class="gif-contents container">
+  <img loading="lazy" alt="Animated GIF" src="https://media2.giphy.com/media/1RnIktmPKZmP7V4tGA/giphy.gif?cid=790b7611479fd96785c6f443cee0e175f589dd6e41296f31&amp;rid=giphy.gif&amp;ct=g" width="600" height="500"><br><br>
+  <strong style="font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; font-size: 1.4em;" data-mce-fragment="1" data-mce-style="font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; font-size: 1.4em;">Makes Driving Safer</strong><br data-mce-fragment="1"></div>
+<div style="text-align: center;" data-mce-fragment="1" data-mce-style="text-align: center;">Every driver knows that the charging cable is always either too long or too short. This interferes with safe driving and is just very annoying. The&nbsp;Clean™ Coil Cable has always the perfect length.<br data-mce-fragment="1"></div>
+<div style="text-align: center;" data-mce-fragment="1" data-mce-style="text-align: center;"><br data-mce-fragment="1"></div>
+<div style="text-align: center;" data-mce-fragment="1" data-mce-style="text-align: center;"><span data-mce-fragment="1" mce-data-marked="1">You can even put the cable in your bag or in your pocket without wasting time untangling it after you take it out</span><span data-mce-fragment="1">.<br data-mce-fragment="1"><br data-mce-fragment="1"></span></div>
+<div style="text-align: center;" data-mce-fragment="1" data-mce-style="text-align: center;"><strong style="font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; font-size: 1.4em;" data-mce-fragment="1" data-mce-style="font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; font-size: 1.4em;"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/0590/8630/7503/files/3-a-fast-charge-magic-magnetic-self-windi_description-13_480x480.jpg?v=1627994373" alt="" width="400" height="601" data-mce-fragment="1" data-mce-src="https://cdn.shopify.com/s/files/1/0590/8630/7503/files/3-a-fast-charge-magic-magnetic-self-windi_description-13_480x480.jpg?v=1627994373"><br data-mce-fragment="1">3 in 1 Charging Plugs</strong><br data-mce-fragment="1"></div>
+<div style="text-align: center;" data-mce-fragment="1" data-mce-style="text-align: center;"><span data-mce-fragment="1">The&nbsp;Clean™ Coil Cable comes with 3 different magnetic charging plugs&nbsp;to cover every device</span>.&nbsp;You can keep the charging plug inside your device and it will act as a dust plug to protect your charging port.<br data-mce-fragment="1"><br data-mce-fragment="1">
+<div style="text-align: center;" data-mce-fragment="1" data-mce-style="text-align: center;"><meta charset="utf-8">
+<div data-label="Row" class="gf_row" id="r-1613228145237" data-icon="gpicon-row" data-id="1613228145237" data-mce-fragment="1">
+<div class="gf_column gf_col-lg-6 gf_col-md-6 gf_col-sm-6 gf_col-xs-12" id="c-1613228145259" data-id="1613228145259" data-mce-fragment="1">
+<div data-label="Row" data-key="row" id="r-1613228195384" class="gf_row" data-icon="gpicon-row" data-id="1613228195384" data-mce-fragment="1">
+<div class="gf_col-lg-12 gf_column" id="c-1613228195340" data-id="1613228195340" data-mce-fragment="1">
+<div data-label="Text Block" data-key="text-block" id="e-1613231705486" class="element-wrap" data-icon="gpicon-textblock" data-ver="1" data-id="1613231705486" data-mce-fragment="1">
+<div class="elm text-edit gf-elm-left" data-gemlang="en" data-mce-fragment="1"><span style="color: #0f0f0f;" color="#0f0f0f" data-mce-fragment="1" data-mce-style="color: #0f0f0f;"><meta charset="utf-8"> <span data-mce-fragment="1">Charge&nbsp;</span><span data-mce-fragment="1">your device in less than a second by snapping the cable at the magnetic charging plug.</span><br data-mce-fragment="1"><br data-mce-fragment="1"><meta charset="utf-8"></span>
+<div style="text-align: center;" data-mce-fragment="1" data-mce-style="text-align: center;"><strong style="font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; font-size: 1.4em;" data-mce-fragment="1" data-mce-style="font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; font-size: 1.4em;"><img loading="lazy" height="400" width="400" alt="" src="https://cdn.shopify.com/s/files/1/0590/8630/7503/files/111_480x480.jpg?v=1627995390" data-mce-fragment="1" data-mce-src="https://cdn.shopify.com/s/files/1/0590/8630/7503/files/111_480x480.jpg?v=1627995390"><br data-mce-fragment="1">Try the Clean™ Coil Cable RISK-FREE, for the first 30 days</strong><br data-mce-fragment="1"></div>
+<div style="text-align: center;" data-mce-fragment="1" data-mce-style="text-align: center;"><meta charset="utf-8">For whatever reason, If you don't like our famous Clean™ Coil Cable, we will give you a full refund, no questions asked. If you have any complaint whatsoever, our 24/7 support team will do everything in their power to resolve it!</div>
+<div style="text-align: center;" data-mce-fragment="1" data-mce-style="text-align: center;"><br data-mce-fragment="1"><img loading="lazy" height="350" width="400" alt="" src="https://cdn.shopify.com/s/files/1/0590/8630/7503/files/3333_480x480.jpg?v=1627997465" data-mce-fragment="1" data-mce-src="https://cdn.shopify.com/s/files/1/0590/8630/7503/files/3333_480x480.jpg?v=1627997465"><br></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h1 style="text-align: center;" data-mce-fragment="1" data-mce-style="text-align: center;"><strong data-mce-fragment="1">SUMMER</strong><strong data-mce-fragment="1">&nbsp;SALE:&nbsp;<br data-mce-fragment="1"><span data-mce-fragment="1">50% OFF</span>!<br data-mce-fragment="1"></strong><span style="color: #7566e8;" data-mce-fragment="1" data-mce-style="color: #7566e8;"><strong data-mce-fragment="1"><span style="color: #3189ff;" data-mce-fragment="1" data-mce-style="color: #3189ff;" mce-data-marked="1"><span style="color: #000000;" data-mce-fragment="1" data-mce-style="color: #000000;"><span color="#000000" data-mce-fragment="1">CLICK<span data-mce-fragment="1">&nbsp;</span><span data-mce-fragment="1">ADD TO CART</span></span><span color="#000000" data-mce-fragment="1">&nbsp;TO GET YOURS!</span></span></span></strong></span></h1>
+</div>
+</div>
+
+<script>
+  new Swiper(".swiper-container-{{- product.id -}}", {
+      slidesPerView: 1,
+      centeredSlides: true,
+      spaceBetween: 0,
+      // loop is so the slide doesnt stop and loops until the last one
+      loop: true,
+
+      breakpoints: {
+          600: {
+              allowTouchMove: false,
+              speed: 0,
+              navigation: {
+                  nextEl: ".swiper-button-next-{{- product.id -}}",
+                  prevEl: ".swiper-button-prev-{{- product.id -}}"
+              }
+          }
+      }
+  })
+</script>
+
+
+
+
+
+{% if product.metafields.loox.num_reviews %}
+<script id="looxSchemaJson" type="application/ld+json">
+{
+	"@context": "http://schema.org",
+	"@type": "Product",
+	"@id": {{ canonical_url | json }},
+	"aggregateRating": {
+		"@type": "AggregateRating",
+		"ratingValue": "{{ product.metafields.loox.avg_rating }}",
+		"reviewCount": "{{ product.metafields.loox.num_reviews }}"
+	},
+	"name": {{ product.title | json }}
+}
+</script>
+{% endif %}
+
+
+	<div id="looxReviews" data-product-id="{{ product.id }}" class="loox-reviews-default">{{ product.metafields.loox.reviews }}</div>

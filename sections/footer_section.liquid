@@ -1,0 +1,48 @@
+{%- assign social_icons = false -%}
+{%- assign inline_list = false -%}
+{%- assign locale_selector = false -%}
+{%- assign country_selector = false -%}
+{%- assign show_payment_icons = false -%}
+{%- assign show_selectors = false -%}
+
+{%- assign show_country_selector = section.settings.show_currency_selector -%}
+{%- if show_country_selector and localization.available_countries.size > 1 -%}
+    {%- assign country_selector = true -%}
+{%- endif -%}
+
+{%- if section.settings.show_locale_selector and localization.available_languages.size > 1 -%}
+    {%- assign locale_selector = true -%}
+{%- endif -%}
+
+{%- if section.settings.show_payment_icons -%}
+    {%- unless shop.enabled_payment_types == empty -%}
+        {%- assign show_payment_icons = true -%}
+    {%- endunless -%}
+{%- endif -%}
+
+{%- if country_selector or locale_selector -%}
+    {%- assign show_selectors = true -%}
+{%- endif -%}
+
+{%- if 
+    settings.social_twitter_link != blank 
+    or settings.social_facebook_link != blank 
+    or settings.social_pinterest_link != blank 
+    or settings.social_instagram_link != blank 
+    or settings.social_tumblr_link != blank 
+    or settings.social_snapchat_link != blank 
+    or settings.social_youtube_link != blank 
+    or request.page_type == 'article' 
+    or request.page_type == 'blog' 
+-%}
+    {%- assign social_icons = true -%}
+{%- endif -%}
+
+{%- assign payment_width_class = "one-half" -%}
+{%- if show_selectors -%}
+    {%- unless social_icons -%}
+        {%- assign payment width_class = "" -%}
+    {% endunless %}
+{% endif %}
+
+

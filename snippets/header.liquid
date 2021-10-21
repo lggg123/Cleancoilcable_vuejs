@@ -1,0 +1,141 @@
+<header class="header" id="header">
+  <div class="header-inner flex space-between">
+
+    
+    {% unless template == "product" %}
+    <button class="menu-button" @click="toggleMenu">
+      <svg class="menu-arrow-icon">{% render 'header-arrow' %}</svg>
+        <span>Menu</span>
+    </button>
+    {% else %}
+    <a href="javascript:history.back()" class="menu-button">
+      <svg class="menu-arrow-icon" style="transform: none">{% render 'header-arrow' %}</svg>
+      <span>Back</span>
+    </a>
+    {% endunless %}
+
+    <a href="/" class="header-title">
+      <img loading="lazy" src="{{ "cleanlogo.png" | asset_url }}" alt="{{ shop.name }}">
+    </a>
+
+
+    <div class="cart-button-container" @click="toggleMiniCart">
+        <button class="cart-button">
+            <span>
+              <template v-if="cart">
+                Cart (${cart.item_count})
+              </template>
+            </span>
+            <svg class="cart-arrow-icon">{% render 'header-arrow' %}</svg>
+        </button>
+
+    </div>
+  </div>
+
+  <div class="header-mobile">
+    <a href="/" class="header-title"><img loading="lazy" src="{{ "cleanlogo.png" | asset_url }}" alt="{{ shop.name }}"></a>
+    <div class="mobile-nav">
+      <button class="mobile-nav-button" @click="toggleMenu">
+        <span>Menu</span>
+      </button>
+      <button class="mobile-nav-button" @click="toggleMiniCart">
+        <span>Cart</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="menu-drawer" :class="{ hidden: menuDrawer}">
+    {% render 'menu-drawer' %}
+  </div>
+
+    <div class="mini-cart" :class="{ hidden: miniCart }">
+      <button class="mini-cart-close-button" @click="toggleMiniCart">Close</button>
+        {% render 'mini-cart' %}
+    </div>
+    <!-- the v-if statement is a vue js if clause that if either or is false 
+      use the outside class if not use the above class -->
+    <div class="outside" v-if="!miniCart || !menuDrawer" @click="closeAllDrawers"></div>
+</header>
+
+<script>
+
+  if (document.querySelector('#header')) {
+    
+    const headerCart = Vue.createApp({
+      delimiters: ['${', '}'],
+      data() {
+        return {
+          cartData: store.state.cartState
+        }
+      },
+      methods : {
+        toggleMiniCart() {
+          toggleMiniCart.openCart()
+        },
+        toggleMenu() {
+          toggleMenu.openMenu()
+        },
+        closeAllDrawers() {
+          toggleClose.closeAll()
+        },
+        decrement(item) {
+          const data = {
+            "id": item.key,
+            "quantity": item.quantity - 1
+          }
+
+          axios.post('/cart/change.js', data)
+            .then(response => {
+              store.getCart()
+            })
+            .catch(error => console.log(error))
+        },
+        increment(item) {
+          const data = {
+            "id": item.key,
+            "quantity": item.quantity + 1
+          }
+          
+          axios.post('/cart/change.js', data)
+            .then(response => {
+              store.getCart()
+            })
+            .catch(error => console.log(error))
+        },
+        money(value) {
+          if (!value) return 0 
+          return "$" + (value/100).toFixed(2)
+        }
+      },
+      computed: {
+        // way to create functions that update based on other methods
+        // similar to use effect in reactjs
+        // value changes based on miniCartState
+        miniCart() {
+          return miniCartState.hidden
+        },
+        menuDrawer() {
+          return menuState.hidden 
+        },
+        cart() {
+          // replacing the old cart with a new cart 
+          return this.cartData[0]
+        }
+      },
+      created() {
+        store.getCart()
+      }
+    }).mount('#header')
+  }
+  
+</script>
+
+
+<script>
+  !function (w, d, t) {
+    w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
+  
+    ttq.load('C520SKILQH64DC0FS4D0');
+    ttq.page();
+  }(window, document, 'ttq');
+</script>
